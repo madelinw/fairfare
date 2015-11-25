@@ -1,3 +1,27 @@
+/*
+ * Copyright (c) 2015 Madelin Woods. All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+
 var _,
 h,
 SplitFair = {
@@ -31,6 +55,11 @@ SplitFair = {
     var self = this;
     $(document).ready(function() {
       self.setEl();
+
+      _.billAmtEl.val(location.hash.toString().split(",")[0].substr(1));
+      _.income1El.val(location.hash.toString().split(",")[1]);
+      _.income2El.val(location.hash.toString().split(",")[2]);
+
     });
 
     $("#bill-amount, #income1, #income2").on("propertychange change click keyup input paste", function() {
@@ -39,6 +68,7 @@ SplitFair = {
       _.inc2 = _.income2El.val() * 1;
 
       h.splitBill();
+      h.updateURL();
 
       _.pay1El.html(_.pay1.toFixed(2));
       _.pay2El.html(_.pay2.toFixed(2));
@@ -59,6 +89,10 @@ SplitFair = {
           _.pay1 = _.amount - _.pay2;
         }
       }
+    },
+
+    updateURL: function() {
+      location.hash = [_.amount,_.inc1,_.inc2].join();
     }
   }
 }
