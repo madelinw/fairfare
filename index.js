@@ -56,16 +56,17 @@ SplitFair = {
     var self = this;
     $(document).ready(function() {
       self.setEl();
+      h.initCurrency();
 
-      if (location.hash.length > 0) {
-        _.billAmtEl.val(location.hash.toString().split(",")[0].substr(1));
-        _.income1El.val(location.hash.toString().split(",")[1]);
-        _.income2El.val(location.hash.toString().split(",")[2]);
+      if (location.hash.length > 0 && location.hash != "#,,") {
+        _.billAmtEl.autoNumeric('set', location.hash.toString().split(",")[0].substr(1));
+        _.income1El.autoNumeric('set', location.hash.toString().split(",")[1]);
+        _.income2El.autoNumeric('set', location.hash.toString().split(",")[2]);
 
         h.setup();
-      } else if (localStorage.income1 != "0" && localStorage.income2 != "0") {
-        _.income1El.val(localStorage.income1 * 1);
-        _.income2El.val(localStorage.income2 * 1);
+      } else if (localStorage.income1 != "0" && localStorage.income1 != "" && localStorage.income2 != "0" && localStorage.income2 != "") {
+        _.income1El.autoNumeric('set', localStorage.income1);
+        _.income2El.autoNumeric('set', localStorage.income2);
       }
     });
 
@@ -80,10 +81,17 @@ SplitFair = {
   },
 
   helpers: {
+    initCurrency: function() {
+      _.billAmtEl.autoNumeric('init', {aSign: '$'});
+      _.income1El.autoNumeric('init', {aSign: '$'});
+      _.income2El.autoNumeric('init', {aSign: '$'});
+    },
     setup: function() {
-      _.amount = _.billAmtEl.val() * 1;
-      _.inc1 = _.income1El.val() * 1;
-      _.inc2 = _.income2El.val() * 1;
+      h.initCurrency();
+
+      _.amount = _.billAmtEl.autoNumeric('get').length > 0 ? _.billAmtEl.autoNumeric('get') : 0;
+      _.inc1 = _.income1El.autoNumeric('get').length > 0 ? _.income1El.autoNumeric('get') : 0;
+      _.inc2 = _.income2El.autoNumeric('get').length > 0 ? _.income2El.autoNumeric('get') : 0;
 
       h.splitBill();
       h.updateURL();
@@ -111,7 +119,9 @@ SplitFair = {
     },
 
     updateURL: function() {
-      location.hash = [_.amount,_.inc1,_.inc2].join();
+      if ([_.amount,_.inc1,_.inc2].join() != ",,") {
+        location.hash = [_.amount,_.inc1,_.inc2].join();
+      }
     }
   }
 }
