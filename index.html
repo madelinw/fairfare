@@ -1,11 +1,11 @@
 <html>
   <head>
     <title>Fair Fare</title>
-    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="index.js"></script>
     <style type="text/css">
-    * { box-sizing: border-box; }
+      * { box-sizing: border-box; }
       body {
         font-family: Helvetica;
         display: flex;
@@ -22,7 +22,15 @@
         position: relative;
         max-width: 50%;
       }
-      .sr-only { display: none; }
+      label {
+        text-transform: uppercase;
+        font-size: 10px;
+        text-align: left;
+        letter-spacing: 1px;
+        display: block;
+        color: #e0e0e0;
+        margin-bottom: 5px;
+      }
 
       input, button {
         width: 100%;
@@ -63,40 +71,48 @@
       .btn-primary { background-color: #00bcd4; }
       .btn-primary:hover { background-color: #00ACC1; }
       .btn-primary:active, .btn-primary:focus { background-color: #0097A7; }
+
+      .person1, .person2 { display: block; }
+      .person1:before, .person2:before { content: "$";}
+
+      p { font-size: 12px; font-style: italic; color: #e0e0e0;}
     </style>
   </head>
   <body>
     <form class="container">
       <div class="row">
+        <div class="form-group col full-col">
+          <label for="bill-amount">Bill to split</label>
+          <input type="number" class="form-control" id="bill-amount" placeholder="Bill amount">
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col half-col">
           <div class="form-group">
-            <label for="income1" class="sr-only">Income 1</label>
+            <label for="income1">Income 1</label>
             <input type="number" class="form-control" id="income1" placeholder="Income 1">
           </div>
         </div>
         <div class="col half-col">
           <div class="form-group">
-            <label for="income2" class="sr-only">Income 2</label>
+            <label for="income2">Income 2</label>
             <input type="number" class="form-control" id="income2" placeholder="Income 2">
           </div>
         </div>
       </div>
       <div class="row">
-        <p class="col full-col">----- OR -----</p>
-      </div>
-      <div class="row">
-        <div class="col full-col">
-          <button type="button" class="btn">Default 77%</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col full-col">
-          <label for="bill-amount" class="sr-only">Bill to split</label>
-          <input type="number" class="form-control" id="bill-amount" placeholder="Bill amount">
-        </div>
+        <p class="col full-col">Leave income blank to default to 77%</p>
       </div>
 
-      <button type="submit" class="btn btn-primary">Split Fair</button>
+      <div class="row">
+        <div class="col half-col">
+          Person 1 Pays: <span class="person1"></span>
+        </div>
+        <div class="col half-col">
+          Person 2 Pays: <span class="person2"></span>
+        </div>
+      </div>
     </form>
     <div class="breakdown"></div>
   </body>
