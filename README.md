@@ -1,2 +1,2 @@
-# point77
+# Fair Fare
 Calculate bill-splitting based on income
