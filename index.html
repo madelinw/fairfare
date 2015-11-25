@@ -80,6 +80,31 @@
       .person1 { color: #00bcd4; }
       .person2 { color: #8BC34A; }
 
+      .about {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+      .about-link {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-size: 14px;
+        text-align: right;
+        padding: 15px;
+      }
+      .about-modal {
+        background: rgba(0,0,0,.8);
+        line-height: 24px;
+        width: 320px;
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        padding: 20px;
+        display: none;
+      }
+
+      .show { display: block; }
+
       p { font-size: 12px; font-style: italic; color: #e0e0e0;}
     </style>
   </head>
@@ -117,5 +142,14 @@
         </div>
       </div>
     </form>
+    <div class="about">
+      <a href="#" class="about-link">Why?</a>
+      <div class="about-modal">
+        <p>
+          Splitting bills equally doesn't always work in a world full of income disparity. Mi amor and I decided that it was only fair to pay based on a percentage of what you make. This is our tool to help us figure that out.
+        </p>
+      </div>
+    </div>
+
   </body>
 </html>

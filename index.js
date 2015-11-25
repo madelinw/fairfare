@@ -71,6 +71,11 @@ SplitFair = {
     $("#bill-amount, #income1, #income2").on("propertychange change click keyup input paste", function() {
       h.setup();
     });
+
+    $(".about-link").click(function(e) {
+      e.preventDefault();
+      $(".about-modal").toggleClass("show");
+    })
   },
 
   helpers: {
