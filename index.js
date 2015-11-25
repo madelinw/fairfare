@@ -56,11 +56,16 @@ SplitFair = {
     $(document).ready(function() {
       self.setEl();
 
-      _.billAmtEl.val(location.hash.toString().split(",")[0].substr(1));
-      _.income1El.val(location.hash.toString().split(",")[1]);
-      _.income2El.val(location.hash.toString().split(",")[2]);
+      if (location.hash.length > 0) {
+        _.billAmtEl.val(location.hash.toString().split(",")[0].substr(1));
+        _.income1El.val(location.hash.toString().split(",")[1]);
+        _.income2El.val(location.hash.toString().split(",")[2]);
 
-      h.setup();
+        h.setup();
+      } else if (localStorage.income1 != "0" && localStorage.income2 != "0") {
+        _.income1El.val(localStorage.income1 * 1);
+        _.income2El.val(localStorage.income2 * 1);
+      }
     });
 
     $("#bill-amount, #income1, #income2").on("propertychange change click keyup input paste", function() {
@@ -79,6 +84,9 @@ SplitFair = {
 
       _.pay1El.html(_.pay1.toFixed(2));
       _.pay2El.html(_.pay2.toFixed(2));
+
+      localStorage.setItem('income1', _.inc1);
+      localStorage.setItem('income2', _.inc2);
     },
 
     splitBill: function() {
