@@ -60,9 +60,16 @@ SplitFair = {
       _.income1El.val(location.hash.toString().split(",")[1]);
       _.income2El.val(location.hash.toString().split(",")[2]);
 
+      h.setup();
     });
 
     $("#bill-amount, #income1, #income2").on("propertychange change click keyup input paste", function() {
+      h.setup();
+    });
+  },
+
+  helpers: {
+    setup: function() {
       _.amount = _.billAmtEl.val() * 1;
       _.inc1 = _.income1El.val() * 1;
       _.inc2 = _.income2El.val() * 1;
@@ -72,10 +79,8 @@ SplitFair = {
 
       _.pay1El.html(_.pay1.toFixed(2));
       _.pay2El.html(_.pay2.toFixed(2));
-    });
-  },
+    },
 
-  helpers: {
     splitBill: function() {
       if (_.inc1 != 0 && _.inc2 != 0) {
         _.pay1 = (_.inc1 / (_.inc1 + _.inc2)) * _.amount;
