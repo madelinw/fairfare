@@ -15,8 +15,8 @@ SplitFair = {
     self.el.billAmtEl = $("#bill-amount");
     self.el.income1El = $("#income1");
     self.el.income2El = $("#income2");
-    self.el.pay1El = $(".person1");
-    self.el.pay2El = $(".person2");
+    self.el.pay1El = $(".person1 span");
+    self.el.pay2El = $(".person2 span");
   },
 
   init: function() {
@@ -42,23 +42,20 @@ SplitFair = {
 
       _.pay1El.html(_.pay1.toFixed(2));
       _.pay2El.html(_.pay2.toFixed(2));
-
-      console.log("percentage: " + _.percentage)
     });
   },
 
   helpers: {
     splitBill: function() {
-      var max = Math.max(_.inc1, _.inc2);
-      var min = Math.min(_.inc1, _.inc2);
-      _.percentage = (_.inc1 != 0 && _.inc2 != 0) ? (min / (_.inc1 + _.inc2)) : 0.77;
-
-      if (_.amount != 0) {
-        if (_.inc2 < _.inc1) {
-          _.pay1 = _.amount * _.percentage;
+      if (_.inc1 != 0 && _.inc2 != 0) {
+        _.pay1 = (_.inc1 / (_.inc1 + _.inc2)) * _.amount;
+        _.pay2 = (_.inc2 / (_.inc1 + _.inc2)) * _.amount;
+      } else {
+        if (_.inc1 > _.inc2) {
+          _.pay1 = .77 * _.amount;
           _.pay2 = _.amount - _.pay1;
         } else {
-          _.pay2 = _.amount * _.percentage;
+          _.pay2 = .77 * _.amount;
           _.pay1 = _.amount - _.pay2;
         }
       }

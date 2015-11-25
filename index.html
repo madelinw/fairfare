@@ -72,8 +72,11 @@
       .btn-primary:hover { background-color: #00ACC1; }
       .btn-primary:active, .btn-primary:focus { background-color: #0097A7; }
 
-      .person1, .person2 { display: block; }
-      .person1:before, .person2:before { content: "$";}
+      .person1 span, .person2 span { display: block; }
+      .person1 span:before, .person2 span:before { content: "$";}
+
+      .person1 { color: #00bcd4; }
+      .person2 { color: #8BC34A; }
 
       p { font-size: 12px; font-style: italic; color: #e0e0e0;}
     </style>
@@ -106,11 +109,11 @@
       </div>
 
       <div class="row">
-        <div class="col half-col">
-          Person 1 Pays: <span class="person1"></span>
+        <div class="col half-col person1">
+          Person 1 Pays: <span>0</span>
         </div>
-        <div class="col half-col">
-          Person 2 Pays: <span class="person2"></span>
+        <div class="col half-col person2">
+          Person 2 Pays: <span>0</span>
         </div>
       </div>
     </form>
