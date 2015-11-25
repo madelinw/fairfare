@@ -49,6 +49,7 @@ SplitFair = {
     h = self.helpers;
 
     self.events();
+    console.log("Made with love by Madelin Woods // www.madelinwoods.com");
   },
 
   events: function() {
