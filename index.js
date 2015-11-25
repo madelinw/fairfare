@@ -89,9 +89,9 @@ SplitFair = {
     setup: function() {
       h.initCurrency();
 
-      _.amount = _.billAmtEl.autoNumeric('get').length > 0 ? _.billAmtEl.autoNumeric('get') : 0;
-      _.inc1 = _.income1El.autoNumeric('get').length > 0 ? _.income1El.autoNumeric('get') : 0;
-      _.inc2 = _.income2El.autoNumeric('get').length > 0 ? _.income2El.autoNumeric('get') : 0;
+      _.amount = _.billAmtEl.autoNumeric('get').length > 0 ? _.billAmtEl.autoNumeric('get') * 1 : 0;
+      _.inc1 = _.income1El.autoNumeric('get').length > 0 ? _.income1El.autoNumeric('get') * 1 : 0;
+      _.inc2 = _.income2El.autoNumeric('get').length > 0 ? _.income2El.autoNumeric('get') * 1 : 0;
 
       h.splitBill();
       h.updateURL();
