@@ -33,7 +33,7 @@ SplitFair = {
       self.setEl();
     });
 
-    $("#bill-amount, #income1, #income2").on("change", function() {
+    $("#bill-amount, #income1, #income2").on("propertychange change click keyup input paste", function() {
       _.amount = _.billAmtEl.val() * 1;
       _.inc1 = _.income1El.val() * 1;
       _.inc2 = _.income2El.val() * 1;
