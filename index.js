@@ -34,7 +34,6 @@ SplitFair = {
     self.el.inc2 = 0;
     self.el.pay1 = 0;
     self.el.pay2 = 0;
-    self.el.percentage = 0.77;
 
     self.el.billAmtEl = $("#bill-amount");
     self.el.income1El = $("#income1");
