@@ -21,7 +21,6 @@
  *
  */
 
-
 var _,
 h,
 SplitFair = {
@@ -40,6 +39,8 @@ SplitFair = {
     self.el.income2El = $("#income2");
     self.el.pay1El = $(".person1 span");
     self.el.pay2El = $(".person2 span");
+    self.el.pay1Venmo = $(".person1 .venmo");
+    self.el.pay2Venmo = $(".person2 .venmo");
   },
 
   init: function() {
@@ -97,6 +98,9 @@ SplitFair = {
 
       _.pay1El.html(_.pay1.toFixed(2));
       _.pay2El.html(_.pay2.toFixed(2));
+
+      _.pay1Venmo.attr("href", "https://venmo.com/?txn=pay&amount=" + _.pay1.toFixed(2) + "&note=Split%20fairly%20with%20%40fairfa_re&audience=public");
+      _.pay2Venmo.attr("href", "https://venmo.com/?txn=pay&amount=" + _.pay2.toFixed(2) + "&note=Split%20fairly%20with%20%40fairfa_re&audience=public");
 
       localStorage.setItem('income1', _.inc1);
       localStorage.setItem('income2', _.inc2);

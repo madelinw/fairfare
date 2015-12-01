@@ -100,3 +100,19 @@ input, button {
 .show { display: block; }
 
 p { font-size: 12px; font-style: italic; color: #e0e0e0;}
+
+.venmo { background-image: url('icon-venmo.png'); }
+.sqcash { background-image: url('icon-cash.png'); }
+.icon-pay {
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.pay-links { margin-top: 10px; }
