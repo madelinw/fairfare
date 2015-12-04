@@ -68,7 +68,7 @@ input, button {
 .btn-primary:hover { background-color: #00ACC1; }
 .btn-primary:active, .btn-primary:focus { background-color: #0097A7; }
 
-.person1 span, .person2 span { display: block; }
+.person1 span, .person2 span { display: block; font-size: 42px; font-weight: 100; }
 .person1 span:before, .person2 span:before { content: "$";}
 
 .person1 { color: #00bcd4; }
