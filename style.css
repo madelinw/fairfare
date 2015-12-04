@@ -28,7 +28,7 @@ label {
 
 input, button {
   width: 100%;
-  border: 1px solid #f1f1f1;
+  border: 3px solid #f1f1f1;
   outline: 0;
   line-height: 30px;
   padding: 5px 20px;
