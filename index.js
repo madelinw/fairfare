@@ -112,10 +112,10 @@ SplitFair = {
         _.pay2 = (_.inc2 / (_.inc1 + _.inc2)) * _.amount;
       } else {
         if (_.inc1 > _.inc2) {
-          _.pay1 = .77 * _.amount;
+          _.pay1 = .78 * _.amount;
           _.pay2 = _.amount - _.pay1;
         } else {
-          _.pay2 = .77 * _.amount;
+          _.pay2 = .78 * _.amount;
           _.pay1 = _.amount - _.pay2;
         }
       }

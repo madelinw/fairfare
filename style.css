@@ -8,6 +8,14 @@ body {
   justify-content: center;
 }
 
+a, a:active, a:visited {
+  color: #e0e0e0;
+  -moz-transition: color .2s ease;
+  -webkit-transition: color .2s ease;
+  transition: color .2s ease;
+}
+a:hover { color: #aaa; }
+
 .container {
   margin: 0 auto;
   padding-left: 15px;
