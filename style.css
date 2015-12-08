@@ -9,12 +9,12 @@ body {
 }
 
 a, a:active, a:visited {
-  color: #e0e0e0;
+  color: #bbb;
   -moz-transition: color .2s ease;
   -webkit-transition: color .2s ease;
   transition: color .2s ease;
 }
-a:hover { color: #aaa; }
+a:hover { color: #555; }
 
 .container {
   margin: 0 auto;
@@ -30,7 +30,7 @@ label {
   text-align: left;
   letter-spacing: 1px;
   display: block;
-  color: #e0e0e0;
+  color: #212121;
   margin-bottom: 5px;
 }
 
@@ -107,7 +107,7 @@ input, button {
 
 .show { display: block; }
 
-p { font-size: 12px; font-style: italic; color: #e0e0e0;}
+p { font-size: 12px; font-style: italic; color: #bbb;}
 
 .venmo { background-image: url('icon-venmo.png'); }
 .sqcash { background-image: url('icon-cash.png'); }
